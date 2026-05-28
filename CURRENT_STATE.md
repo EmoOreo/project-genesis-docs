@@ -1,4 +1,4 @@
-# PROJECT GENESIS — CURRENT STATE
+# PROJECT GENESIS â€” CURRENT STATE
 
 ## Project Overview
 
@@ -6,19 +6,22 @@ Project Genesis is a single-player, data-driven creature breeding and genetics s
 
 The game is set within Sanctuary Site-04, a post-collapse scientific facility where the player breeds, mutates, manages, and studies synthetic organisms using a Dominant/Recessive/Mutation (D/R/M) inheritance system.
 
-The project is currently transitioning from isolated prototype scenes into a modular multi-scene management simulation architecture.
+Project Genesis is transitioning from prototype breeding simulation toward a true management-style scientific genetics and creature stewardship simulator.
 
 ---
 
 # Current Gameplay Loop
 
+Current functional gameplay loop:
+
 1. Open Sanctuary Site-04
 2. Enter Breeding Lab
 3. Select Parent A
 4. Select Parent B
-5. Breed offspring
-6. View breeding results
-7. Repeat breeding loop
+5. Review projected offspring estimates
+6. Breed offspring
+7. View breeding results
+8. Repeat breeding loop
 
 ---
 
@@ -32,26 +35,44 @@ Loads:
 - core_traits.json
 
 ### TraitLibrary.cs
-Handles:
+Manages:
 - trait definitions
-- categories
+- trait categories
 - inheritance support
+- mutation references
 
 ### CreatureManager.cs
-Central creature registry and runtime population tracking.
+Central runtime registry for:
+- all loaded creatures
+- generated offspring
+- runtime population tracking
 
 ### BreedingManager.cs
 Handles:
 - breeding execution
-- offspring generation
-- mutation handling
+- offspring creation
+- inheritance logic
+- mutation generation
 - generation tracking
+- inbreeding calculations
 
 ### SimulationAdapter.cs
-Bridge layer between gameplay and simulation systems.
+Bridge layer between simulation systems and UI systems.
 
 ### GodotEventStore.cs
-Runtime event/logging system.
+Runtime event messaging and notification foundation.
+
+---
+
+## Predictive Breeding System
+
+Breeding UI now includes projected offspring estimation including:
+- projected stat tendencies
+- mutation variance display
+- lineage projection
+- live parent pairing analysis
+
+This transitions the breeding system from pure RNG breeding toward intentional genetics management gameplay.
 
 ---
 
@@ -59,65 +80,69 @@ Runtime event/logging system.
 
 ## SanctuarySite04.tscn
 
-Primary gameplay shell.
+Primary game shell.
 
 Contains:
-- TopBar
-- LeftFacilityMenu
-- MainContentPanel
-- BottomEventLog
+- top status bar
+- facility sidebar
+- dynamic gameplay panel
+- event log terminal
+- facility routing system
 
-Facilities:
+Current facilities:
 - Breeding Lab
-- Creature Roster (placeholder)
-- Habitat Dome A (placeholder)
-- Observatory (placeholder)
-
----
+- Creature Roster
+- Habitat Dome A placeholder
+- Observatory placeholder
 
 ## TestScene.tscn
 
-Legacy prototype/testing scene.
+Legacy prototype/testing environment.
 
-Currently still used for:
-- debugging
-- isolated system testing
-- rapid UI iteration
+Still useful for:
+- isolated debugging
+- UI experiments
+- breeding debugging
+- rapid iteration
 
 ---
 
-# Active UI Systems
+# Current UI Identity
 
-## BreedingLabUI.tscn
+The UI is converging toward a scientific breeding terminal.
 
-Integrated into SanctuarySite04.
+Current strengths:
+- live parent pairing
+- projected offspring panel
+- trait/stat preview
+- mutation variance readability
+- sanctuary event feed
+- modular facility layout
 
-Features:
-- Parent selection dropdowns
-- Trait preview labels
-- Placeholder creature icons
-- Breed button
-- Reset button
-- Result output
+Current weakness:
+- registry/card readability still needs improvement
 
 ---
 
 # Current Limitations
 
 - No save/load system
-- No habitat simulation
-- No ecosystem simulation
-- No final creature visuals
-- Simplified genetics implementation
-- Creature roster integration incomplete
+- Habitat simulation not started
+- Creature roster needs stronger card-based UX
+- No visual lineage/family tree
+- Advanced D/R/M dominance conflicts are still simplified
+- Placeholder creature icons
+- Event logging is minimal
 
 ---
 
 # Immediate Next Steps
 
-1. Integrate CreatureRosterUI
-2. Build HabitatDomeUI
-3. Implement save/load
-4. Add habitat compatibility scoring
-5. Expand event system
-6. Add simulation ticking
+1. Build CreatureCard.tscn
+2. Integrate CreatureCard into Creature Roster
+3. Add trait color coding
+4. Add mutation/stability indicators
+5. Add lineage viewer
+6. Build HabitatDomeUI
+7. Add habitat compatibility scoring
+8. Implement save/load persistence
